@@ -1,4 +1,4 @@
-package com.ldu.exam.exam1;
+package com.ldu.exam.exam1.servlet;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
