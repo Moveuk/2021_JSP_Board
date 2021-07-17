@@ -2,67 +2,29 @@
 <br>
 <hr>
 
-## STS 설치 및 톰캣 9 환경 구성.
+## 1~6. 개발환경세팅 : 
+ 1. STS 설치
+ 2. 깃 저장소 생성
+ 3. STS에 JSP, JAVASCRIPT, emmet 플러그인 설치   
+	- emmet 사용을 위한 emmet에 JSP 설정     
+	![image](https://user-images.githubusercontent.com/84966961/126035645-dda625d7-3dab-41d8-8dca-a7c5a8c3ed47.png)   
 
-
-
-<br><br>
-<hr>
-
-
-### 오류 종류
-
-1. 콘솔 버퍼가 작아서 경고창 뜸.
- 내용대로 늘려주었음.
- 
-![image](https://user-images.githubusercontent.com/84966961/126031220-4aa1c972-2928-41d9-bd34-e5a60d3b238c.png)
-
-2. 기존 SQL 포트를 8080 으로 쓰기 때문에 충돌하여 새로운 톰캣 9 버전의 포트를 8282 로 옴겨줌.   
-   
- 옴기는 방법 : 
- - 본인은 STS 에서 Server를 연동해놨기 때문에 Servers > server.xml 파일에서 포트번호 `8080`을 원하는 포트 번호로 바꿔주었음. 또 다시 포트가 충돌 날 수 있으므로 아래 기준에 따라서 잘 보고 사용할것. 높은 숫자일수록 덜 충돌날 확률이 있다고 함.
-
-
-```
-0번 ~ 1023번: 잘 알려진 포트 (well-known port)
-
-1024번 ~ 49151번: 등록된 포트 (registered port)
-
-49152번 ~ 65535번: 동적 포트 (dynamic port)
-
-(출처 위키백과)
-```
-
-![image](https://user-images.githubusercontent.com/84966961/126031364-82d159d9-268b-4321-a9cf-f074ff872d2c.png)
-
- - 다음과 같은 방법으로 포트 번호를 바꿔줄 수 있음.
-	1. server 창에서 서버 더블클릭.
-	2. 밑에 `overview` 탭인지 확인.
-	3. 오른쪽 위 html 1.1 포트번호 더블클릭 후 변경.
-
-![image](https://user-images.githubusercontent.com/84966961/126031516-fdbce506-c6b0-4eea-bc54-a2d9b149eaf7.png)
-
-3. git 초기 위치를 잘못 잡아서 submodule이 생긴 상황 ( 2시간 오류처리 걸림..ㅜㅜ)
-
-```
-폴더 구조
-	project - src - exam - .git
-			- .git
-
-이렇게 최초 .git을 만들고 실수로 터미널 위치를 잘못 파악하여 git init 을 통해 깃 폴더 생성.
-
-```
-   
- 이런 오류로 내부에 submodule이 있는 것으로 파악하여 깃허브에서는 폴더 내부에 화살표 모양이 생겨 접근이 불가능했음.    
- 터미널에서는 접근이 안되니 add도 안되고 commit도 안되고 push를 하자니 오류가 발생함.   
- 그래서 2시간 구글링을 통해 2곳의 .git 폴더를 없애고 난 후 정상 작동함.
-
+ 4. 톰캣 9 설치   
+ 5. STS utf-8 및 폰트 설정
+		- STS 내부 모든 인코딩 utf-8로 변경 2021_JSP 저장소 1강에 정리되어있음.   
+		- 폰트 d2coding 사용   
 
 <br><br>
 <hr>
 
+## 7. 첫 서블릿 생성
 
-## git 설치 및 STS 깃 저장소 설정
+	프로젝트를 오른쪽 클릭하여 서블릿 생성.
+
+<br><br>
+<hr>
+
+## 8. git 설치 및 STS 깃 저장소 설정
 
 1. git 설치. 구글링   
 
@@ -110,7 +72,7 @@
 <hr>
 
 
-## 서블릿 UTF-8 설정
+## 9. 서블릿 UTF-8 설정
 
 ```java
 @WebServlet(name = "UsrHomeMainServlet", urlPatterns = { "/usr/home/main" })
@@ -144,9 +106,68 @@ public class HomeMainServlet extends HttpServlet {
 <br><br>
 <hr>
 
-## 게시물 등록 서블릿 작성
+## 10~11. 게시물 등록 서블릿 작성
+ 
+ 1. 전통적인 JSP 사이트는 요청(기능 / ex> 글쓰기 회원가입 등등) 하나하나 마다 서블릿을 작성하여 사이트를 구동한다.   
+   
+![image](https://user-images.githubusercontent.com/84966961/126035362-89812c21-7724-4760-8d73-55d128708ab3.png)   
 
- 전통적인 JSP 사이트는 요청(기능 / ex> 글쓰기 회원가입 등등) 하나하나 마다 서블릿을 작성하여 사이트를 구동한다.
+위 그림 처럼 직접 유저가 JSP 로 접근 못하게 하려면 폴더를 `WEB-INF`에 넣으면 서블릿 내부에서만 접근이 가능해진다.   
+   
+<img src="https://user-images.githubusercontent.com/84966961/126035397-3a6367bd-997c-4fe2-82e3-bee74b0baa4a.png" width="40%">   
+
+ 2. 데이지 UI 홈페이지에 찾아가 URL 링크를 얻어 jsp 파일에 넣어줌.
+ 3. 리소스 폴더를 만들어 font.css 작성 : 롯데마트 폰트 사용
+ 4. 다음과 같은 코드 작성
+
+**write.jsp**
+```jsp
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JSP BOARD</title>
+<!-- 데이지 UI 불러오기 : 테일윈드 + 추가기능 -->
+<link
+	href="https://cdn.jsdelivr.net/npm/tailwindcss@2.1/dist/tailwind.min.css"
+	rel="stylesheet" type="text/css" />
+<link href="https://cdn.jsdelivr.net/npm/daisyui@1.9.0/dist/full.css"
+	rel="stylesheet" type="text/css" />
+<!-- 폰트 구성 : 컨텍스트 패스 필요해서 불러옴. -->
+<link rel="stylesheet"
+	href="<%=request.getContextPath() + "/resource/font.css"%>" />
+</head>
+<body>
+	<!-- section(의미없음) section-article-write(이름 : 글쓰기 의미) -->
+	<section class="section section-article-write">
+		<!-- 알아서 반응형되는 tailwind 기능 container(어느정도 폭을 줄여줌) / margin(mx) auto -->
+		<div class="container mx-auto">
+			<form action="">
+			<!-- 데이지 UI 페이지에서 가져온 태그 -->
+				<div class="form-control">
+					<label class="label">
+						<span class="label-text">제목</span>
+					</label>
+					<!-- width full 꽉차게 , input bordered 하게 -->
+					<input class="input input-bordered w-full" type="text" maxlength="100" name="title"	placeholder="제목을 입력해주세요.">
+				</div>
+				<div class="form-control">
+					<label class="label">
+						<span class="label-text">내용</span>
+					</label>
+					<!-- height : 60(15rem) bordered 윤곽지게 -->
+					<textarea class="textarea textarea-bordered h-60" name="body" maxlength="2000" placeholder="내용을 입력해주세요."></textarea>
+				</div>
+			</form>
+
+		</div>
+	</section>
+
+</body>
+</html>
+```
 
 
 
@@ -166,13 +187,54 @@ public class HomeMainServlet extends HttpServlet {
 
 
 
+<br><br>
+<hr>
 
 
+## 진행 도중 오류 종류
+
+1. 콘솔 버퍼가 작아서 경고창 뜸.
+ 내용대로 늘려주었음.
+ 
+![image](https://user-images.githubusercontent.com/84966961/126031220-4aa1c972-2928-41d9-bd34-e5a60d3b238c.png)
+
+2. 기존 SQL 포트를 8080 으로 쓰기 때문에 충돌하여 새로운 톰캣 9 버전의 포트를 8282 로 옴겨줌.   
+   
+ 옴기는 방법 : 
+ - 본인은 STS 에서 Server를 연동해놨기 때문에 Servers > server.xml 파일에서 포트번호 `8080`을 원하는 포트 번호로 바꿔주었음. 또 다시 포트가 충돌 날 수 있으므로 아래 기준에 따라서 잘 보고 사용할것. 높은 숫자일수록 덜 충돌날 확률이 있다고 함.
 
 
+```
+0번 ~ 1023번: 잘 알려진 포트 (well-known port)
 
+1024번 ~ 49151번: 등록된 포트 (registered port)
 
+49152번 ~ 65535번: 동적 포트 (dynamic port)
 
+(출처 위키백과)
+```
 
+![image](https://user-images.githubusercontent.com/84966961/126031364-82d159d9-268b-4321-a9cf-f074ff872d2c.png)
 
+ - 다음과 같은 방법으로 포트 번호를 바꿔줄 수 있음.
+	1. server 창에서 서버 더블클릭.
+	2. 밑에 `overview` 탭인지 확인.
+	3. 오른쪽 위 html 1.1 포트번호 더블클릭 후 변경.
+
+![image](https://user-images.githubusercontent.com/84966961/126031516-fdbce506-c6b0-4eea-bc54-a2d9b149eaf7.png)
+
+3. git 초기 위치를 잘못 잡아서 submodule이 생긴 상황 ( 2시간 오류처리 걸림..ㅜㅜ)
+
+```
+폴더 구조
+	project - src - exam - .git
+			- .git
+
+이렇게 최초 .git을 만들고 실수로 터미널 위치를 잘못 파악하여 git init 을 통해 깃 폴더 생성.
+
+```
+   
+ 이런 오류로 내부에 submodule이 있는 것으로 파악하여 깃허브에서는 폴더 내부에 화살표 모양이 생겨 접근이 불가능했음.    
+ 터미널에서는 접근이 안되니 add도 안되고 commit도 안되고 push를 하자니 오류가 발생함.   
+ 그래서 2시간 구글링을 통해 2곳의 .git 폴더를 없애고 난 후 정상 작동함.
 
