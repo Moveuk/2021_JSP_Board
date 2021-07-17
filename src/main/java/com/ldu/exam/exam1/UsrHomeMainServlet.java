@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @WebServlet(name = "UsrHomeMainServlet", urlPatterns = { "/usr/home/main" })
-public class HomeMainServlet extends HttpServlet {
+public class UsrHomeMainServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
@@ -25,6 +25,7 @@ public class HomeMainServlet extends HttpServlet {
 		
 		response.getWriter().append("안녕").append(request.getContextPath());
 		response.getWriter().append("<br>"+name);
+		
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
