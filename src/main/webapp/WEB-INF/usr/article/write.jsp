@@ -4,6 +4,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<!-- 모바일에서 디자인이 축소되지 않게 하기 위한 코드 -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>JSP BOARD</title>
 <!-- 데이지 UI 불러오기 : 테일윈드 + 추가기능 -->
 <link
@@ -19,8 +21,8 @@
 	href="<%=request.getContextPath() + "/resource/common.css"%>" />
 </head>
 <body>
-	<!-- section(의미없음) section-article-write(이름 : 글쓰기 의미) -->
-	<section class="section section-article-write">
+	<!-- section(의미없음) section-article-write(이름 : 글쓰기 의미) / padding - 4 px-->
+	<section class="section section-article-write px-4">
 		<!-- 알아서 반응형되는 tailwind 기능 container(어느정도 폭을 줄여줌) / margin(mx) auto -->
 		<div class="container mx-auto">
 			<script>
