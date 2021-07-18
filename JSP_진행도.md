@@ -173,14 +173,299 @@ public class HomeMainServlet extends HttpServlet {
 
 
 
+<br><br>
+<hr>
+
+## 12. 게시물 등록 서블릿 작성
+ 주요 기능 
+  - 전송시 최초 1회만 전송 되도록 스크립트 구성
+  - 내용 체크 후 `length == 0` 일시 경고 메세지
+  - 버튼 사용 : https://daisyui.com/components/button
+   
+![image](https://user-images.githubusercontent.com/84966961/126053431-ead191b4-af65-4f6f-8430-e365afff2394.png)
+
+
+git commit :    
+https://github.com/Moveuk/2021_JSP_Board/commit/cdbd9c69e2b18a8f6ee147f70fe0984b10678ad7
+
+
+<br><br>
+<hr>
+
+## 13. 모바일 환경에서 축소 방지 
+ 주요 기능 
+  - code pen > setting > HTML > `↑ Insert the most common viewport meta tag` click > copy contents in `Stuff for <head>`   
+   
+![image](https://user-images.githubusercontent.com/84966961/126053398-34d59a96-3002-4e74-8de3-c62a42ae5c2d.png)
+
+
+git commit :    
+ https://github.com/Moveuk/2021_JSP_Board/commit/2145c0e136b813297e75e1b2fc00379598095fc9
+ 
+
+<br><br>
+<hr>
+
+## 14. 게시물 작성 처리 서블릿
+ 주요 기능 
+  - post로 보낸 데이터 넘어오는지 확인 : getParameter > response.getWriter().append(title); > 출력
+  - URL pattern 정리 해줘야함. : /usr/article/doWrite
+   
+
+
+git commit :    
+ https://github.com/Moveuk/2021_JSP_Board/commit/c8dcd03177509f838704690e447703cd4fb61500
+
+
+ 
+
+<br><br>
+<hr>
+
+## 15. 깃 저장소를 clone 해서 프로젝트 이어나가기
+ 주요 기능 
+  - 기존 local 파일 다 날리고 git에서 받아오기
+  - git bash > git clone https://github.com/Moveuk/2021_JSP_Board   
+    
+![image](https://user-images.githubusercontent.com/84966961/126053774-24f0c880-fe19-4c83-81ab-d37f897c6257.png)
+   
+  - STS > File > Import > General > Projects from Folder or Archive > Directory... > git clone한 위치 > Finish
+    
+![image](https://user-images.githubusercontent.com/84966961/126053800-6cbe0658-0d53-4f9a-93a8-b499fd8b81ac.png)
+
+  - 오류난 상태 > 해당 프로젝트 Properties > Project Facets > Dynamic Web Module check > Runtimes > Apache 연결 > Tomcat check   
+  - 이 과정을 통해서 STS가 불러온 프로젝트가 동적 웹 프로젝트임을 알려주고 톰캣을 사용한다는 것을 알려줘야함.
+
+![image](https://user-images.githubusercontent.com/84966961/126053855-9e3e78e8-4340-4613-9806-d3361760bab0.png)
+
+  - 임포트 후 톰캣 포트가 다시 8080으로 초기화되므로 원하는 포트로 다시 잡아줘야함   
+![image](https://user-images.githubusercontent.com/84966961/126053915-8d466e25-852f-4c30-b855-9e232dcb8ca1.png)   
+
+  - 서버가 정신 못차리면 Project > clean 해주고 Project 우클릭 > refresh 해주고 STS 껐다 킨다.
+
+git commit :    
+  
+
+
+ 
+
+<br><br>
+<hr>
+
+## 16. MysqlUtil 프로젝트 세팅
+ 주요 기능 
+  - util 적인 기능을 구성하려면 기존 프로젝트 내부가 아니라 격리된 프로젝트를 새로 만들어서 진행한다.
+  - 새로운 git 저장소와 새로운 mysql_util 기능 구현을 위한 java 프로젝트를 만든다.
+  - 깃 저장소 연결
+![image](https://user-images.githubusercontent.com/84966961/126054257-db29e87e-30b8-4cba-818b-e4173b9c6e82.png)
+  - vim .gitignore로 만드는 무시하는 종류들은 다음과 같다.   
+```
+.classpath
+.settings
+.project
+bin/
+```
+  - `esc`를 누르고 :wq(저장 후 vim 종료)를 입력 후 엔터 하면 빠져나온다.
+  - git status를 입력하면 add 해야할 종류들이 줄어든 것을 확인 가능하다.    
+참고 게시글 : https://gbsb.tistory.com/11   
+
+git commit :    
+ https://github.com/Moveuk/java_mysql_util/commit/5aad6aface1161327a14a853fa15c798f357376a
+
+
+ 
+
+<br><br>
+<hr>
+
+## 17. Mysql 설치 및 환경 세팅 후 DB 연결 
+ 주요 기능 
+  - Mysql 설치
+MySQL : 오픈소스 
+오라클 : 기업
+
+오라클이 MySQL을 샀고 오픈소스 진영에서 다른 DB를 개발함.
+
+MySQL => MariaDB : 정신 계승하여 오픈소스 개발. 사실상 MySQL
+
+맥 => MySQL이 이미 깔려있음.
+
+<br>
+
+ - XAMPP % sqlyog community edition 최신 버전 설치   
+XAMPP (X(크로스 플랫폼의 뜻에서) Apache MariaDB PHP Peal)   
+   
+https://www.apachefriends.org/download.html   
+   
+설치시 거의 모든 체크박스(웹서버 관련) 제거 후 설치   
+   
+https://github.com/webyog/sqlyog-community/wiki/Downloads   
+   
+XAMPP에서 MySQL config 클릭 > my.ini 텍스트 파일 클릭   
+![image](https://user-images.githubusercontent.com/84966961/126055202-eb6f86c8-636d-466a-b2d0-272b34cf7cd9.png)     
+
+MySQL 서버 내부에서 대소문자 구별하게 해주는 속성 추가   
+ ![image](https://user-images.githubusercontent.com/84966961/126055185-886d4156-fafc-47c4-b3b8-05faafdc3634.png)   
+
+uft-8 사용을 위한 주석 제거   
+![image](https://user-images.githubusercontent.com/84966961/126055230-5e495e9b-9cae-42e1-8283-cae94d25372f.png)   
+
+속성 설정 후 XAMPP에서 실행   
+![image](https://user-images.githubusercontent.com/84966961/126055244-37a4770f-19bf-4242-8413-91020185d04e.png)   
+   
+만약 3306 port를 다른 소프트웨어가 쓰고 있다면 my.ini에서 port 번호 변경 ex)3307   
+![image](https://user-images.githubusercontent.com/84966961/126055274-d8c8ce53-aad1-4519-9b29-cfa512de0083.png)   
+
+
+<br>
+
+  - sqlyog 설치 후 실행 : mysql 속성 과정을 진행 해야 접속 가능   
+![image](https://user-images.githubusercontent.com/84966961/126054865-b60762d8-22d4-43cb-832d-6733145597dd.png)
+
+  - new 새 계정 `root@xampp` 열고 만듬(맨처음 xampp는 id : root에 비밀번호가 없음.)   
+변경사항에 대해서 변경 허락   
+
+  - 권한 부여 : sql 명령어   
+```
+GRANT ALL PRIVILEGES ON *.* TO moveuk@`%` IDENTIFIED BY '1234';
+
+id moveuk / pwd 1234 
+`%` : 어디서든 접근 가능 (`localhost`로 하면 원격으로 접속 못함.)
+moveuk이 없으니 만들어줌.
+```
+![image](https://user-images.githubusercontent.com/84966961/126055345-99c187ed-1ea7-418d-a3d1-032d12b6dbcd.png)   
+
+`Ctrl + A` 눌러서 전체 선택후 `F9` 눌러 실행.   
+   
+![image](https://user-images.githubusercontent.com/84966961/126055388-9cf590fa-c8c3-4613-b6e8-021490f8f65b.png)
+   
+
+<br>
+
+  - 권한 부여 후 끄고 새로 만든 계정으로 로그인   
+![image](https://user-images.githubusercontent.com/84966961/126055435-04a4f728-ad15-41e5-8f4f-a2d4535eb4e3.png)    
+   
+moveuk으로 연결 성공.
+![image](https://user-images.githubusercontent.com/84966961/126055446-f55246ef-b17a-490b-a136-676cf98f6a88.png)   
+   
+
+<br>
+
+  - DB 세팅 완료 후 DB 연동
+
+```
+DROP DATABASE IF EXISTS mysqlutil;
+CREATE DATABASE mysqlutil;
+USE mysqlutil;
+```
+   
+실행   
+![image](https://user-images.githubusercontent.com/84966961/126055490-25a56767-0e4a-4d7e-a34f-b6ebf6925357.png)   
+   
+
+<br>
+
+  - 프로젝트에 db.sql 파일 만들어 sql문 저장   
+![image](https://user-images.githubusercontent.com/84966961/126055518-95760abc-693e-432a-8186-161dfa204d62.png)   
+![image](https://user-images.githubusercontent.com/84966961/126055533-e6c380b6-15bb-489e-a6ee-131d2b26b277.png)   
+
+
+<br>
+
+  - DB_URL 분석   
+
+ 속성 | 설명
+ -|-
+ `jdbc:mysql://` | JDBC 통해 mysql 접속
+ `localhost:3306/` | 호스트 번호
+ `mysqlutil?` | DB 이름
+ `useUnicode=true&characterEncoding=utf8&` | 한글 관련 설정 
+ `autoReconnect=true&` | 끊겼을 때 다시 연결
+ `serverTimezone=Asia/Seoul&` | 시간대 설정
+ `useOldAliasMetadataBehavior=true&` | 테이블 칼럼이랑 데이터 베이스 대소문자가 잘 반영되게하는 속성
+ `zeroDateTimeNehavior=convertToNull&` | 0000-00-00 00:00:00 이런 문법은 자바에서 허용되지 않으므로 null로 치환
+ `connectTimeout=60";` | 60초까지 연결 가능
+
+
+<br>
+
+  - db 접근 계정 변경   
+```java
+	// Database credentials
+	static final String USER = "moveuk";
+	static final String PASS = "1234";
+```
 
 
 
+<br>
+
+  - DB 테이블 생성 및 테스트
+```
+DROP DATABASE IF EXISTS mysqlutil;
+CREATE DATABASE mysqlutil;
+USE mysqlutil;
+
+CREATE TABLE article (
+	id INT(10) UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	regDate DATETIME NOT NULL,
+	updateDate DATETIME NOT NULL,
+	title CHAR(100) NOT NULL,
+	`body` TEXT NOT NULL
+);
+
+INSERT INTO article
+SET regDate = NOW(),
+updateDate = NOW(),
+title = '제목1',
+`body` = '내용1';
+
+INSERT INTO article
+SET regDate = NOW(),
+updateDate = NOW(),
+title = '제목2',
+`body` = '내용2';
+```
+
+<br>
+
+  - 들어온 데이터 확인   
+![image](https://user-images.githubusercontent.com/84966961/126055737-23b7ed52-54c3-444b-8a66-9858d2d09cab.png)   
+  
+<br>
+  
+  - STS test.java 파일 실행   
+![image](https://user-images.githubusercontent.com/84966961/126055786-b7b64c60-9949-464e-a308-b844e9a32c64.png)
+
+  - 쿼리문 하나 가져오는데 너무 많은 code 소요. 나중에 바꾸자.
+
+<br>
+
+   
+git commit :    
+ 
+ https://github.com/Moveuk/java_mysql_util/commit/9d7d45d0f86deeb49917ad0828332e398bc40a35
+
+
+<br><br>
+<hr>
+
+## 18. 커밋 메세지 바꾸기 
+ 주요 기능    
+  - 최근 커밋 메세지 바꾸기   
+   ![image](https://user-images.githubusercontent.com/84966961/126055922-e2be10af-66e0-4d0f-ad88-12d16cab2993.png)   
+
+git commit :    
+ https://github.com/Moveuk/java_mysql_util/commit/9d7d45d0f86deeb49917ad0828332e398bc40a35
 
 
 
+<br><br>
+<hr>
 
-
+## 19. MySQL 라이브러리 작성 
+ 주요 기능    
+  - 
 
 
 
