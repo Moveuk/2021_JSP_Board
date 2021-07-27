@@ -463,10 +463,16 @@ git commit :
 <br><br>
 <hr>
 
-## 19. MySQL 라이브러리 작성 
- 주요 기능    
-  - 
+## 19~20. MySQL 라이브러리 작성 및 테스트 
+ 주요 기능 : 디테일하게 적으면 적을 게 많음(주석확인) 중요 내용들만.     
+  - MysqlUtil 이라는 DBCP 접속 객체 DAO와 SecSql 이라는 sql문 정리 객체를 나눔.
+  - 게시판에 대한 db 값을 Map 으로 받아 select할 경우에 여러 튜플이 나올경우 List로 받아옴.
+  - 예외처리의 경우 Runtime Exception을 상속 받아 만들어 예외 발생시 해당 스레드가 바로 죽고 사라지게 만들어줌.
+  - 여러 튜플, 단일 튜플, 단일 String 값, 단일 int 값, boolean 값등 다양하게 받을 수 있도록 메서드 작성.
 
+
+git commit :    
+ https://github.com/Moveuk/java_mysql_util/commit/6433463ad6b453fe26dcf71e6b885c7f4ea5a438
 
 
 
@@ -474,6 +480,65 @@ git commit :
 
 <br><br>
 <hr>
+
+
+## 21. 잭슨 기본 예제
+ 주요 기능      
+  - 값들을 DTO 객체로도 바꿀 수 있고, HashMap으로도 바꿀 수 있고, JSON으로도 변형이 가능함. 
+  - 다음 3가지 받은 후 STS 빌드 패스 추가.   
+![image](https://user-images.githubusercontent.com/84966961/127147058-678ab4ef-208a-461d-9b1d-dcb90578483a.png)   
+
+git commit :    
+ https://github.com/Moveuk/java_mysql_util/commit/ca80ab7fbeca4ccd6cd58f484951ea2971463c27
+
+
+
+
+<br><br>
+<hr>
+
+
+
+## 22.  
+ 주요 기능      
+  - 
+
+git commit :    
+ 
+
+
+
+
+<br><br>
+<hr>
+
+
+
+## 21.  
+ 주요 기능      
+  - 
+
+git commit :    
+ 
+
+
+
+
+<br><br>
+<hr>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 ## 진행 도중 오류 종류
