@@ -499,14 +499,30 @@ git commit :
 
 
 
-## 22.  
+## 22.  잭슨, 리스트 파싱 및 제너릭 적용
  주요 기능      
-  - 
+  - 리스트 파싱 테스트 1 : 리스트 형태로 받음
+  - 리스트 파싱 테스트 2 : 각 객체를 맵으로 받고 튜플을 리스트로 받음
+  - 리스트 파싱 테스트 3 : 제이슨 스트링 집합을 타입레퍼런스 자바빈 형태 리스트로 변환함
+  - 리스트 파싱 테스트 4 : 스트링을 2번째처럼 한 번 바꾸고 다시 세번째 테스트 형태로 바꿀 수 있음.
+
+
+  -> `Json`, `List<Map<String, Object>>`, `List<Article>`(자바 빈 형태) 이 세 형태는 자유롭게 변환이 가능함.
 
 git commit :    
- 
+ https://github.com/Moveuk/java_mysql_util/commit/11d3ab6ac1fd66245ff8fea31853d6eb18b308de
 
+	
+	
+<br><br>
+<hr>
 
+## 23. MysqlUtil 라이브러리에서 파싱한 데이터를 Map이 아닌 특정 객체 형태로 만드는 기능 추가 
+ 주요 기능      
+  - Select 했을 때 두번째 인자로 주면 Article DTO 형태로 보냄.
+
+git commit :    
+ https://github.com/Moveuk/java_mysql_util/commit/127a30690de96b788b5e5b79612072a53726cab1
 
 
 <br><br>
@@ -514,19 +530,43 @@ git commit :
 
 
 
-## 21.  
+## 24. 게시물 작성페이지에 카드디자인 적용
+ 주요 기능      
+  - 카드 디자인 적용 디자인 시스템 적용
+  - 폰트 어썸 : cdnjs.com 홈페이지에서 구할 수 있음.
+
+![image](https://user-images.githubusercontent.com/84966961/127516383-d1ba3a4f-1a3a-43df-a9c0-ff63cbc45538.png)
+
+
+git commit :    
+https://github.com/Moveuk/2021_JSP_Board/commit/3c6eec789737d603facd1cad0c424ecd58a9b4cd
+
+<br><br>
+<hr>
+
+
+
+## 25. 
  주요 기능      
   - 
 
 git commit :    
- 
-
-
 
 
 <br><br>
 <hr>
 
+
+
+## 26. 
+ 주요 기능      
+  - 
+
+git commit :    
+
+
+<br><br>
+<hr>
 
 
 
