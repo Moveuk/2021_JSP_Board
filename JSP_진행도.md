@@ -548,32 +548,89 @@ https://github.com/Moveuk/2021_JSP_Board/commit/3c6eec789737d603facd1cad0c424ecd
 
 ## 25. 
  주요 기능      
-  - 
+  - 테스트 db 환경을 jsp_board 프로젝트에 구성함. 메이븐을 사용하면 라이브러리가 자동으로 구성되나봄.
+  - title을 바로 넣어주는 것이 아니라 따로 매개변수를 넣어주어야 sqlInjection에 관련된 해킹 위협이 사라진채로 들어가게 된다.
+```
+		SecSql sql = new SecSql();
+		sql.append("INSERT INTO article");
+		sql.append("SET regDate = NOW()");
+		sql.append(", updateDate = NOW()");
+		sql.append(", title = ?", title);
+```
+
+
 
 git commit :    
-
+ https://github.com/Moveuk/2021_JSP_Board/commit/d8af2a7bf00726b5903955b97e798fa6af754379
 
 <br><br>
 <hr>
 
 
 
-## 26. 
+## 26. 게시물 리스트, MysqlUtil로 SELECT
+ 주요 기능      
+  - 캡슐화 dto 객체를 만들 때는 필드를 `private`하게 만들어 감싸주자.
+  - list 페이지 구현
+
+느낀 점
+  - 주요 기술(여기에서는 sql 접속 및 CRUD 기능 구현)만 제대로 구현 가능하다면 나머지 페이지 구성은 생각보다 쉽다.
+  - 지금 하는 것은 학원에서와 마찬가지로 전통적인 jsp 페이지 구현이다.
+  - 이 개념을 이해하고 SPRING 개발로 들어간다.
+
+
+git commit :    
+  https://github.com/Moveuk/2021_JSP_Board/commit/61e8894f5a0e39e090a223d80a63cb815cd0020a
+
+<br><br>
+<hr>
+
+
+
+
+## 27. 
  주요 기능      
   - 
 
 git commit :    
-
+  
 
 <br><br>
 <hr>
 
 
 
+## . 
+ 주요 기능      
+  - 
+
+git commit :    
+  
+
+<br><br>
+<hr>
 
 
+## . 
+ 주요 기능      
+  - 
+
+git commit :    
+  
+
+<br><br>
+<hr>
 
 
+## . 
+ 주요 기능      
+  - 
+
+git commit :    
+  
+
+<br><br>
+<hr>
 
 
 
