@@ -34,7 +34,7 @@
 		<div class="container mx-auto">
 
 			<div class="card bordered shadow-lg">
-				<div class="card-title">
+				<div class="card-title"> 
 					<a href="javascript:history.back();" class="cursor-pointer">
 						<i class="fas fa-chevron-left"></i>
 					</a>
