@@ -588,30 +588,46 @@ git commit :
 
 
 
-## 27. 
+## 27. 모든 서블릿 없애고, 디스패처 서블릿 구현
  주요 기능      
-  - 
+  - 실무에서는 디스패처 서블릿으로 통일하고 컨트롤러를 만들어 일을 분배한다. (요청 하나하나마다 서블릿을 만들기 힘드므로 ) 
+  - `*`을 통해 multiple url bind 가 가능하다. : 문제점 : 아무런 주소나 다 들어 올 수 있음.
+```java
+@WebServlet(urlPatterns = { "/usr/*" })
+public class DispatcherServlet extends HttpServlet {
+```
+**결과 화면**   
+![image](https://user-images.githubusercontent.com/84966961/127773179-6f8db016-5d79-40ec-bdd8-420ca8d68034.png)
+
+  - 변수명 일괄 변경 : `alt + shift + R` 
+  - 여기에서는 들어오는 url을 String.split으로 쪼개서 들어오는 값으로 알맞는 Controller를 붙여준다.
+ -> `/2021_jsp_board/usr/article/write` 를 String 배열로 쪼갬
+**결과 화면**   
+![image](https://user-images.githubusercontent.com/84966961/127773730-004b21c4-77fc-4254-98d1-38f92677689b.png)
+
+
 
 git commit :    
-  
+  https://github.com/Moveuk/2021_JSP_Board/commit/6252efbdca79aebc282d9d2c2427689e42e50c60
 
 <br><br>
 <hr>
 
 
-
-## . 
+## 28 ~ 29 . Req와 Resp의 어탭터 클래스인 Rq 클래스 구현
  주요 기능      
-  - 
+  - SpringMVC : 디스패처 서블릿과 컨트롤러
+  - 컨테이너 : Autowired, new 없이 객체 생성 및 활용.
+  - Request를 Rq 클래스로 만들어서 adaptor 로 활용함. : adaptor pattern 찾아보기
 
 git commit :    
-  
+  https://github.com/Moveuk/2021_JSP_Board/commit/640c7e1fb048e40ceb5d3af50bf4632226b94bc7
 
 <br><br>
 <hr>
 
 
-## . 
+## 30. 
  주요 기능      
   - 
 
