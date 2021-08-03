@@ -1,7 +1,10 @@
 package com.ldu.exam.exam1.http;
 
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -55,7 +58,7 @@ public class Rq{
 				this.controllerName = requestUriBits[controllerNameIndex];
 				this.actionMethodName = requestUriBits[actionMethodNameIndex];
 	}
-
+	
 	public void print(String string) {
 		try {
 			response.getWriter().append(string);
@@ -66,6 +69,15 @@ public class Rq{
 
 	public void println(String string) {
 		print(string + "\n");
+	}
+
+	public void jsp(String jspPath) {
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/"+jspPath+".jsp");
+		try {
+			dispatcher.forward(request, response);
+		} catch (ServletException | IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 }

@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.ldu.exam.exam1.controller.Controller;
+import com.ldu.exam.exam1.controller.UsrArticleController;
 import com.ldu.exam.exam1.http.Rq;
 import com.ldu.mysqlutil.MysqlUtil;
 
@@ -26,18 +28,35 @@ public class DispatcherServlet extends HttpServlet {
 		}
 		
 		// usrArticleController write 가 호출되면 됨.
-		rq.println("controllerTypeName : " + rq.getControllerTypeName());
-		rq.println("<br>");
-		rq.println("controllerName : " + rq.getControllerName());
-		rq.println("<br>");
-		rq.println("actionMethodName : " + rq.getActionMethodName());
+//		rq.println("controllerTypeName : " + rq.getControllerTypeName());
+//		rq.println("<br>");
+//		rq.println("controllerName : " + rq.getControllerName());
+//		rq.println("<br>");
+//		rq.println("actionMethodName : " + rq.getActionMethodName());
 		
-		// db 커넥션
-		MysqlUtil.setDBInfo("localhost", "moveuk", "1234", "jsp_board");
-		MysqlUtil.setDevMode(true);
+		Controller controller = null;
+		
+		switch (rq.getControllerTypeName()) {
+		case "usr" :
+			switch (rq.getControllerName()) {
+			case "article" :
+				controller = new UsrArticleController();
+			}
+			break;
+		}
+		
+		if(controller != null) {
+			// db 커넥션
+			MysqlUtil.setDBInfo("localhost", "moveuk", "1234", "jsp_board");
+			MysqlUtil.setDevMode(true);
+			
+			controller.performAction(rq);
+			
+			// MysqlUtil에서 제대로 못닫았으면 닫아주는 용도
+			MysqlUtil.closeConnection();
+		}
+		
 
-		// MysqlUtil에서 제대로 못닫았으면 닫아주는 용도
-		MysqlUtil.closeConnection();
 		
 		
 	}
