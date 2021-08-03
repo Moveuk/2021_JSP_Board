@@ -627,12 +627,12 @@ git commit :
 <hr>
 
 
-## 30. 
+## 30. Rq클래스에 jsp 연결기능 구현
  주요 기능      
-  - 
+  - 분리한 url을 jsp에 불러 정리하게끔.
 
 git commit :    
-  
+  https://github.com/Moveuk/2021_JSP_Board/commit/b4b533c2879c6567b358d56891ec06866d42abab
 
 <br><br>
 <hr>
