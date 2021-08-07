@@ -1,5 +1,8 @@
 package com.ldu.exam.exam1.http.Repository;
 
+import java.util.List;
+
+import com.ldu.exam.exam1.dto.Article;
 import com.ldu.mysqlutil.MysqlUtil;
 import com.ldu.mysqlutil.SecSql;
 
@@ -16,6 +19,17 @@ public class ArticleRepository {
 		
 		// MysqlUtil 에서 insert시 id값을 받도록 했음.
 		return id;
+	}
+
+	public List<Article> getForPrintArticles() {
+		SecSql sql = new SecSql();
+		sql.append("SELECT A.*");
+		sql.append("FROM article AS A");
+		sql.append("ORDER BY id DESC");
+		
+		// Article.class 로 각 하나씩 매핑해서 list에 넣어 달라.
+		return MysqlUtil.selectRows(sql, Article.class);
+		
 	}
 
 }
