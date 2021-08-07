@@ -1,4 +1,4 @@
-package com.ldu.exam.exam1.controller;
+package com.ldu.exam.exam1.http.controller;
 
 import com.ldu.exam.exam1.http.Rq;
 

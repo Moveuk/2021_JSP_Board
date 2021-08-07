@@ -8,9 +8,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.ldu.exam.exam1.controller.Controller;
-import com.ldu.exam.exam1.controller.UsrArticleController;
 import com.ldu.exam.exam1.http.Rq;
+import com.ldu.exam.exam1.http.controller.Controller;
+import com.ldu.exam.exam1.http.controller.UsrArticleController;
 import com.ldu.mysqlutil.MysqlUtil;
 
 @WebServlet(urlPatterns = { "/usr/*" })

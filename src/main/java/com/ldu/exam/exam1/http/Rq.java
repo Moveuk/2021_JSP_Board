@@ -8,6 +8,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.ldu.exam.exam1.util.Ut;
+
 import lombok.Getter;
 
 @Getter
@@ -92,8 +94,15 @@ public class Rq{
 	}
 
 	public void printf(String format, Object... args) {
-		print(String.format(format, args));
+		print(Ut.f(format, args));
 		
+	}
+
+	public void historyBack(String msg) {
+		println("<script>");
+		printf("alert('%s');\n", msg);
+		println("history.back();");
+		println("</script>");
 	}
 
 }
