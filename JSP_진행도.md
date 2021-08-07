@@ -649,6 +649,135 @@ git commit :
 <hr>
 
 
+## . 
+ 주요 기능      
+  - 
+
+git commit :    
+  
+
+<br><br>
+<hr>
+
+
+## 33. ArticleService, ArticleRepository 도입
+ 주요 기능      
+  - Service 에서 DAO를 통해 DB에 접근하도록 구조 변경 
+  - Util 클래스를 도입하여 printf, Map 컬렉션 생성과 같은 기능 추가
+  - ResultData 결과와 속성 정보에 대한 값을 가지고 있는 클래스 생성 - 클라이언트를 위한 보고서 형식(다양한 정보 포함)
+  	- ResultCode : "S-1", "S-2", "F-1" 등과 같은 resultCode로 성공 실패에 대한 정보 식별
+  	- msg : 출력 메세지 정보 포함
+  	- body : key-value 형식으로 데이터를 담음.
+  - 테스트
+![image](https://user-images.githubusercontent.com/84966961/128588610-487436e2-6f19-4b63-935b-1f613e7a1991.png)   
+![image](https://user-images.githubusercontent.com/84966961/128588591-b30d382f-9672-48bb-99fc-7b858c5bb3a6.png)    
+  - 흐름도
+  	- 고객(브라우저) => UserArticle 컨트롤러
+  	- UserArticle 컨트롤러 => Article서비스
+  	- Article서비스 => ArticleRepository
+  	- ArticleRepository => MysqlUtil(JDBC, Mysql)
+  	- MysqlUtil(JDBC, Mysql) =응답> ArticleRepository(id)
+  	- ArticleRepository =응답> Article서비스(ResultData)
+  	- Article서비스 =응답> UserArticle 컨트롤러
+  	- UserArticle 컨트롤러 => 고객(브라우저)
+
+
+git commit :    
+ https://github.com/Moveuk/2021_JSP_Board/commit/472caf57808e87fb9a4883e512cfbcf9fd30238e  
+
+<br><br>
+<hr>
+
+
+## 34 ~ 35. Ut클래스의 f 메소드 & lombok 적용
+ 주요 기능      
+  - args 가변인자로 받으면 배열로 받아지고, printf 기능을 사용할 수 있다.
+  - ex ) f("%s : %d", "숫자", 1);		=>	숫자 : 1 출력
+```
+	public static String f(String string, Object... args) {
+		return String.format(string, args);
+	}
+```
+  - lombok 적용
+
+<br><br>
+<hr>
+
+## 36. UsrArticleController::actionShowList 구현
+ 주요 기능      
+  - 리스트 테스트
+![image](https://user-images.githubusercontent.com/84966961/128589426-cc5e3e41-ce02-408c-a715-168e61a4df93.png)    
+  - rq에 articles 넘겨서 setAttribute() 한 다음 jsp 파일로 dispatcher.forward 해버림.
+![image](https://user-images.githubusercontent.com/84966961/128589507-a841ff75-02b2-4750-84b3-995c39df1f90.png)    
+
+
+git commit :    
+  https://github.com/Moveuk/2021_JSP_Board/commit/8d829a22647ce1217e4d2430823dca86e4c6efb8
+
+<br><br>
+<hr>
+
+## 37. 
+ 주요 기능      
+  - 
+
+git commit :    
+  
+
+<br><br>
+<hr>
+
+
+## . 
+ 주요 기능      
+  - 
+
+git commit :    
+  
+
+<br><br>
+<hr>
+
+
+## . 
+ 주요 기능      
+  - 
+
+git commit :    
+  
+
+<br><br>
+<hr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
