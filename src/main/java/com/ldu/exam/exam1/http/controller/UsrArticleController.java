@@ -2,17 +2,14 @@ package com.ldu.exam.exam1.http.controller;
 
 import java.util.List;
 
+import com.ldu.exam.exam1.container.Container;
 import com.ldu.exam.exam1.dto.Article;
 import com.ldu.exam.exam1.dto.ResultData;
 import com.ldu.exam.exam1.http.Rq;
 import com.ldu.exam.exam1.http.service.ArticleService;
 
-public class UsrArticleController extends Controller {
-	private ArticleService articleService;
-	
-	public UsrArticleController() {
-		articleService = new ArticleService();
-	}
+public class UsrArticleController extends Controller {	
+	private ArticleService articleService = Container.articleService;
 	
 	@Override
 	public void performAction(Rq rq) {

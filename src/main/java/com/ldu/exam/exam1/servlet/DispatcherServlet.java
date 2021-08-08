@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.ldu.exam.exam1.container.Container;
 import com.ldu.exam.exam1.http.Rq;
 import com.ldu.exam.exam1.http.controller.Controller;
 import com.ldu.exam.exam1.http.controller.UsrArticleController;
@@ -40,16 +41,12 @@ public class DispatcherServlet extends HttpServlet {
 		case "usr" :
 			switch (rq.getControllerName()) {
 			case "article" :
-				controller = new UsrArticleController();
+				controller = Container.usrArticleController;
 			}
 			break;
 		}
 		
 		if(controller != null) {
-			// db 커넥션
-			MysqlUtil.setDBInfo("localhost", "moveuk", "1234", "jsp_board");
-			MysqlUtil.setDevMode(true);
-			
 			controller.performAction(rq);
 			
 			// MysqlUtil에서 제대로 못닫았으면 닫아주는 용도
