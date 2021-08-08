@@ -719,10 +719,33 @@ git commit :
 
 ## 37. 
  주요 기능      
-  - 
+  - web app 시작과 종료시 (라이프 사이클 안에서) 자동 호출되어 표시해줌.
+  	- contextDestroyed(ServletContextEvent sce) : 시작시
+  	- contextInitialized(ServletContextEvent sce) : 종료시
+  	- 코드
+```java
+public class InitListener implements ServletContextListener {
+
+	@Override
+	public void contextDestroyed(ServletContextEvent sce) {
+		System.out.println("On start web app");
+	}
+
+	@Override
+	public void contextInitialized(ServletContextEvent sce) {
+		System.out.println("On shutdown web app");
+	}
+}
+```
+  - 메소드 내부에 APP이라는 클래스를 만들어 우리 앱의 시작시 종료시 사용해야할 정보를 담아둠.(자동화 개념)
+  - 코드 작성시 필드 변수를 만들 때도 조금 더 근본적인 것부터 만들어 갈 것.
+  - Spring에서의 @autowired 기능
+  	- 싱글턴 패턴으로 만들어 객체를 여러개 만들지 않고 Container를 통해 static으로 받아올 수 있도록 할 것.
+  	- new usrArticleController(); -> Container.usrArticleController;
+
 
 git commit :    
-  
+  https://github.com/Moveuk/2021_JSP_Board/commit/9c2ecbbcf4c112e070276fede63a6d417701aa45
 
 <br><br>
 <hr>
