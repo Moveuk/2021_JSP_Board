@@ -1,4 +1,4 @@
-package com.ldu.exam.exam1.http.service;
+package com.ldu.exam.exam1.service;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;

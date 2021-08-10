@@ -6,7 +6,7 @@ import com.ldu.exam.exam1.container.Container;
 import com.ldu.exam.exam1.dto.Article;
 import com.ldu.exam.exam1.dto.ResultData;
 import com.ldu.exam.exam1.http.Rq;
-import com.ldu.exam.exam1.http.service.ArticleService;
+import com.ldu.exam.exam1.service.ArticleService;
 
 public class UsrArticleController extends Controller {	
 	private ArticleService articleService = Container.articleService;

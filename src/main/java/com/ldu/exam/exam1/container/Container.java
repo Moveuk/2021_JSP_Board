@@ -1,8 +1,8 @@
 package com.ldu.exam.exam1.container;
 
-import com.ldu.exam.exam1.http.Repository.ArticleRepository;
+import com.ldu.exam.exam1.Repository.ArticleRepository;
 import com.ldu.exam.exam1.http.controller.UsrArticleController;
-import com.ldu.exam.exam1.http.service.ArticleService;
+import com.ldu.exam.exam1.service.ArticleService;
 
 public class Container {
 	// 조금 더 근본적인 것부터 만들어 갈 것.

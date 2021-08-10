@@ -1,11 +1,11 @@
-package com.ldu.exam.exam1.http.service;
+package com.ldu.exam.exam1.service;
 
 import java.util.List;
 
+import com.ldu.exam.exam1.Repository.ArticleRepository;
 import com.ldu.exam.exam1.container.Container;
 import com.ldu.exam.exam1.dto.Article;
 import com.ldu.exam.exam1.dto.ResultData;
-import com.ldu.exam.exam1.http.Repository.ArticleRepository;
 import com.ldu.exam.exam1.util.Ut;
 
 public class ArticleService {

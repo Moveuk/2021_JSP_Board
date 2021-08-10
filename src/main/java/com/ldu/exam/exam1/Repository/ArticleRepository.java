@@ -1,4 +1,4 @@
-package com.ldu.exam.exam1.http.Repository;
+package com.ldu.exam.exam1.Repository;
 
 import java.util.List;
 
