@@ -638,23 +638,33 @@ git commit :
 <hr>
 
 
-## . 
+## 31 ~ 32. controllerTypeNameIndex , rq.getParam()
  주요 기능      
-  - 
-
+  - Article::getTitle  -  Article 클래스 내부의 getTitle 메소드
+  - dto vs entity
+  	- dto : 범용
+  	- entity : DB 테이블과 1:1 관계인 DTO(VO)
+  - println, printf, print 기능 구현
+  	- println : print에 /n을 붙임
+  	- printf : format과 가변인자로 받아서 format에 args를 넣어줌.
+  	- 예시
+```java
+	public void printf(String format, Object... args) {
+		print(Ut.f(format, args));
+		
+	}
+```
+![image](https://user-images.githubusercontent.com/84966961/128871728-9cf9450a-ec74-4e00-8489-47c94d249bf5.png)
+  - MVC Model : 프로그래밍을 할 때 편리한 **유지보수**를 위하여 3가지로 나누어 개발하자.
+  	- Model : 모델(Service, Repository(DAO), DTO(VO))
+  	- View : 뷰(JSP)
+  	- Contoller : 컨트롤러(Controller-서블릿)   
+      
+  - getParam(받아야 하는 파라미터, 파라미터가 없는 경우 넣을 디폴트 값);   
+    
+    
 git commit :    
-  
-
-<br><br>
-<hr>
-
-
-## . 
- 주요 기능      
-  - 
-
-git commit :    
-  
+  https://github.com/Moveuk/2021_JSP_Board/commit/07b348df618b2b0e974df4ef8ac817d37d42670b
 
 <br><br>
 <hr>
@@ -717,7 +727,7 @@ git commit :
 <br><br>
 <hr>
 
-## 37. 
+## 37. 싱글톤 객체 컨테이너 적용으로, 객체 재사용 및 공유
  주요 기능      
   - web app 시작과 종료시 (라이프 사이클 안에서) 자동 호출되어 표시해줌.
   	- contextDestroyed(ServletContextEvent sce) : 시작시
@@ -751,6 +761,29 @@ git commit :
 <hr>
 
 
+## 38. http 패키지에 들어있던, service와 리포지터리 밖으로 이동
+ 주요 기능      
+  - http에는 http 관련 기능만 넣도록, 모델(Service, Repository)들의 분리
+
+git commit :    
+  https://github.com/Moveuk/2021_JSP_Board/commit/277101410110965ee0cc3b7c3028cffbf3c2f92e
+
+<br><br>
+<hr>
+
+
+## 39. 게시물 작성시 메시지 출력 후 상세페이지로 replace
+ 주요 기능      
+  - 
+
+git commit :    
+  
+
+<br><br>
+<hr>
+
+
+
 ## . 
  주요 기능      
   - 
@@ -762,6 +795,8 @@ git commit :
 <hr>
 
 
+
+
 ## . 
  주요 기능      
   - 
@@ -776,11 +811,29 @@ git commit :
 
 
 
+## . 
+ 주요 기능      
+  - 
+
+git commit :    
+  
+
+<br><br>
+<hr>
 
 
 
 
 
+## . 
+ 주요 기능      
+  - 
+
+git commit :    
+  
+
+<br><br>
+<hr>
 
 
 
