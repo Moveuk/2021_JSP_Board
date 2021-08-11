@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ page import="java.util.List" %>
 <%@ page import="com.ldu.exam.exam1.dto.Article" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <% List<Article> articles = (List<Article>) request.getAttribute("articles"); %>
 <!DOCTYPE html>
 <html>
@@ -42,16 +43,16 @@
 				</div>
 
 				<div class="px-4 py-4">
-					<% for (Article article : articles) {%>
+					<c:forEach items="${articles }" var="article">
 					<div>
-						번호 : <%= article.getId() %><br>
-						작성 : <%= article.getRegDate() %><br>
-						갱신 : <%= article.getUpdateDate() %><br>
-						제목 : <%= article.getTitle() %><br>
-						내용 : <%= article.getBody() %><br>
-					</div>
+						번호 : ${article.id }<br>
+						작성 : ${article.regDate  }<br>
+						갱신 : ${article.updateDate }<br>
+						제목 : ${article.title }<br>
+						내용 : ${article.body }<br>
+					</div>					
+					</c:forEach>
 					<hr/>
-					<% } %>
 				</div>
 	</section>
 
