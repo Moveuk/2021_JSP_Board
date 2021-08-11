@@ -774,22 +774,68 @@ git commit :
 
 ## 39. 게시물 작성시 메시지 출력 후 상세페이지로 replace
  주요 기능      
-  - 
+  - Map 만들기를 자동화하기 위해 Mapof 메소드를 구성함
+```java
+	public static Map<String, Object> mapOf(Object... args) {
+        if (args.length % 2 != 0) {
+            throw new IllegalArgumentException("인자를 짝수개 입력해주세요.");
+        }
+
+        int size = args.length / 2;
+
+        Map<String, Object> map = new LinkedHashMap<>();
+
+        for (int i = 0; i < size; i++) {
+            int keyIndex = i * 2;
+            int valueIndex = keyIndex + 1;
+
+            String key;
+            Object value;
+
+            try {
+                key = (String) args[keyIndex];
+            } catch (ClassCastException e) {
+                throw new IllegalArgumentException("키는 String으로 입력해야 합니다. " + e.getMessage());
+            }
+
+            value = args[valueIndex];
+
+            map.put(key, value);
+        }
+
+        return map;
+    }
+```
+  - 원하는 조건을 맞추기 위해서 Exception을 던질 수 도 있음.
+  	- Exception의 종류에 대해 공부를 하면 클라이언트에게 현재 오류 사항을 다양한 방식으로 던져 줄 수 있을 것 같다.
+  - String에는 format이라는 메소드가 있으며 이는 **printf**와 같은 기능이다. 
+```java
+	public static String f(String format, Object... args) {
+		return String.format(format, args);
+	}
+```
+  - 만약 클라이언트가 잘못된 주소로 접근한다면 404를 띄워 알려주는 것이 좋다.
+  - hidden을 사용하면 다양한 기능을 구현할 수 있다.
+  	- 심지어 현재는 없는 정보를 데이터 처리 이후 주소값으로 변경하여 사용할 수 있다.
+  	- [NEW_ID] 자리에 db 생성후 id를 받아 넣어줌.
+```jsp
+<input type="hidden" name="redirectUri" value="../article/derail?id=[NEW_ID]">						
+```
 
 git commit :    
-  
+  https://github.com/Moveuk/2021_JSP_Board/commit/707071bab4e01eb3d3dcedfc51529f079b399de0
 
 <br><br>
 <hr>
 
 
 
-## . 
+## 40. jstl 도입
  주요 기능      
-  - 
+  - jstl 도입
 
 git commit :    
-  
+  https://github.com/Moveuk/2021_JSP_Board/commit/8ac928d8c864417264fd54461c618d948d9de85f
 
 <br><br>
 <hr>
