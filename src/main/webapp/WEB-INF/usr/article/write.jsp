@@ -61,6 +61,9 @@
 					<!-- onsubmit에 return false 주면 안보내짐. 조건에 따라 안보내지도록 -->
 					<form action=../article/doWrite " method="post"
 						onsubmit="ArticleWrite__submit(this); return false;">
+						<!-- 게시물 생성 후 detail 화면으로 가기 위하여 uri를 hidden으로 보냄.
+						이후 아이디가 생성되면 NEW_ID 자리에 찾아 넣어줌. -->
+						<input type="hidden" name="redirectUri" value="../article/derail?id=[NEW_ID]">
 						<!-- 데이지 UI 페이지에서 가져온 태그 -->
 						<div class="form-control">
 							<label class="label"> <span class="label-text">제목</span>>

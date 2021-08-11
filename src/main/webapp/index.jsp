@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<%= 10 + 20 %>
+	<% response.sendRedirect("usr/article/write"); %>
 </body>
 </html>

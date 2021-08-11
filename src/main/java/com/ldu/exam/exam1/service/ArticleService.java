@@ -15,7 +15,7 @@ public class ArticleService {
 	public ResultData write(String title, String body) {
 		int id = articleRepository.write(title, body);
 		
-		return ResultData.from("S-1", Ut.f("%d번 게시물이 생성 되었습니다.", id), "id", id);
+		return ResultData.from("S-1", Ut.f("%d번 게시물이 생성되었습니다.", id), "id", id);
 	}
 
 	public List<Article> getForPrintArticles() {

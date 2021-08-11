@@ -26,13 +26,11 @@ public class ResultData {
 	
 	public static ResultData from(String resultCode, String msg, Object... bodyArgs) {
 		ResultData rd = new ResultData();
-		
-		rd.msg = msg;
+
 		rd.resultCode = resultCode;
+		rd.msg = msg;
 		rd.body = Ut.mapOf(bodyArgs);
-		
-		
+
 		return rd;
 	}
-
 }
