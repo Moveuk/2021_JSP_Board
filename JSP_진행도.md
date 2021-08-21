@@ -843,12 +843,12 @@ git commit :
 
 
 
-## . 
+## 41. 공통 상하단 분리
  주요 기능      
-  - 
+  - jspf : jsp의 조각을 위한 확장자
 
 git commit :    
-  
+  https://github.com/Moveuk/2021_JSP_Board/commit/da86026f09eb1223331f1d8adff50489ca1b15f5
 
 <br><br>
 <hr>
