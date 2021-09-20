@@ -17,6 +17,9 @@ public class UsrArticleController extends Controller {
 		case "list":
 			actionShowList(rq);
 			break;
+		case "detail":
+			actionDetailList(rq);
+			break;
 		case "write":
 			actionShowWrite(rq);
 			break;
@@ -28,6 +31,20 @@ public class UsrArticleController extends Controller {
 			rq.println("존재하지 않는 페이지 입니다.");
 			break;
 		}
+	}
+
+	private void actionDetailList(Rq rq) {
+		int id= rq.getIntParam("id", 0);
+		
+		if(id == 0) {
+			rq.historyBack("id를 입력해주세요.");
+			return;
+		}
+		
+		Article article = articleService.getForPrintArticleByid(id);
+
+		rq.setAttr("article", article);
+		rq.jsp("usr/article/detail");
 	}
 
 	private void actionShowList(Rq rq) {
@@ -52,7 +69,7 @@ public class UsrArticleController extends Controller {
 			return;
 		}
 		if(body.length() == 0) {
-			rq.historyBack("title을 입력해주세요.");
+			rq.historyBack("body를 입력해주세요.");
 			return;
 		}
 		

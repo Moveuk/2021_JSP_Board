@@ -25,8 +25,8 @@ List<Article> articles = (List<Article>) request.getAttribute("articles");
 
 			<div class="px-4">
 				<c:forEach items="${articles }" var="article">
-					<c:set var="detailUri" value="../detail?id=${article.id}"></c:set>
-				
+					<c:set var="detailUri" value="../article/detail?id=${article.id}"></c:set>
+
 					<div class="py-4">
 						<!-- css grid 기능 첫열 100px 고정 나머지 통째로 100% 설정 -->
 						<div class="grid gap-3" style="grid-template-columns: 100px 1fr;">
@@ -35,7 +35,7 @@ List<Article> articles = (List<Article>) request.getAttribute("articles");
 								<!-- w-full : width를 full로 주어 확장하게끔 이유 : grid를 100px로 주었기 때문에.-->
 								<img class="rounded-full w-full" src="https://i.pravatar.cc/200?img=37" alt="">
 							</a>
-							<a class="hover:underline cursor-pointer">
+							<a href="${detailUri }" class="hover:underline cursor-pointer">
 								<span class="badge badge-outline">제목</span>
 								<!-- 3줄이상이면 ... 으로 표시하는 기능 -->
 								<div class="line-clamp-3">${article.titleForPrint}</div>
@@ -77,9 +77,12 @@ List<Article> articles = (List<Article>) request.getAttribute("articles");
 								<div class="line-clamp-3">${article.bodySummaryForPrint}</div>
 							</a>
 						</div>
+					</div>
 				</c:forEach>
 				<hr />
 			</div>
+		</div>
+	</div>
 </section>
 
 <%@ include file="../part/foot.jspf"%>

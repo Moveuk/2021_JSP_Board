@@ -22,4 +22,8 @@ public class ArticleService {
 		return articleRepository.getForPrintArticles();
 	}
 
+	public Article getForPrintArticleByid(int id) {
+		return articleRepository.getForPrintArticleById(id);
+	}
+
 }

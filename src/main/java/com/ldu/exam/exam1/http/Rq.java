@@ -95,6 +95,21 @@ public class Rq{
 		return paramValue;
 	}
 
+	public int getIntParam(String paramName, int defaultValue) {
+		String paramValue = request.getParameter(paramName);
+		
+		// null 처리 없거나 int형 변환 실패해도 리턴되도록 처리
+		if (paramValue == null) {
+			return defaultValue;
+		}
+		
+		try {
+			return Integer.parseInt(paramValue);
+		} catch (NumberFormatException e) {
+			return defaultValue;
+		}
+	}
+
 	public void printf(String format, Object... args) {
 		print(Ut.f(format, args));
 		
@@ -107,7 +122,7 @@ public class Rq{
 		println("</script>");
 	}
 
-	public void setAttr(String attrName, List<Article> attrValue) {
+	public void setAttr(String attrName, Object attrValue) {
 		request.setAttribute(attrName, attrValue);
 	}
 
@@ -117,5 +132,4 @@ public class Rq{
 		printf("location.replace('%s');\n", redirectUri);
 		println("</script>");
 	}
-
 }
