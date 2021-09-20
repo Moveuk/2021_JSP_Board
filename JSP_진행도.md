@@ -857,7 +857,49 @@ git commit :
 
 
 
-## . 
+## 42. tailwind css 정리
+ 주요 기능      
+  - class="rounded" : rount-radius 0.25 rem으로 자름 
+  - class="rounded-full" : 이미지 동그랗게 자름
+  - class="line-clamp-3" : 3줄이상이면 overflow ... 으로 표시
+  - cursor-pointer block : ???
+
+git commit :    
+  https://github.com/Moveuk/2021_JSP_Board/commit/1d8e93bd4fcf19f62dbc033f5002a5dbe745e66d
+
+<br><br>
+<hr>
+
+
+
+
+## 43 ~ 44. 그리드 가든(css게임) & 리스트 레이아웃 변경
+ 주요 기능      
+  - https://cssgridgarden.com/#ko : css의 grid를 게임으로 배울 수 있는 사이트
+  - grid는 px, %, fr(proportion비율에 관한 속성) 등을 이용해 구분지을 수 있다.
+```html
+		<!-- css grid 기능 첫열 100px 고정 나머지 통째로 100% 설정 -->
+		<div class="grid gap-3" style="grid-template-columns: 100px 1fr;">
+```
+  - w-full : grid를 100px로 주었기 때문에 width를 full로 주어 확장하게 함
+  - sm : 작은 화면일 때 설정용 / lg 큰화면 일 때 설정용 / xl 가장 큰 화면일 때?
+ <br><br>
+ **대략적인 디자인**   
+![image](https://user-images.githubusercontent.com/84966961/130347485-c7bffea0-b854-414c-bd21-5b69881d6ada.png)   
+
+<br><br>
+
+git commit :    
+  https://github.com/Moveuk/2021_JSP_Board/commit/3ad1689d69edc9f1c651c0a578351e78dd4d89e0
+
+<br><br>
+<hr>
+
+
+
+
+
+## 44. 
  주요 기능      
   - 
 
@@ -871,7 +913,21 @@ git commit :
 
 
 
-## . 
+## 45. 
+ 주요 기능      
+  - 
+
+git commit :    
+  
+
+<br><br>
+<hr>
+
+
+
+
+
+## 46. 
  주요 기능      
   - 
 
