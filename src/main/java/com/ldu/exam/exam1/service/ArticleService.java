@@ -26,4 +26,11 @@ public class ArticleService {
 		return articleRepository.getForPrintArticleById(id);
 	}
 
+	public ResultData delete(int id) {
+		articleRepository.delete(id);
+		
+		// 서비스에서 처리한 내용을 로그기록처럼 남기는 것이 좋다.
+		return ResultData.from("S-1", Ut.f("%d번 게시물이 삭제되었습니다.", id), "id", id);
+	}
+
 }
