@@ -899,7 +899,48 @@ git commit :
 
 
 
-## 44. 
+## 45 ~ 46. 게시물 a태그 링크 & 상세페이지 작성 
+ 주요 기능      
+  - 게시물 클릭시 a태그로 상세페이지 이동
+  	- c:set 이용하여 모든 a태그에 설정 사용.
+  - rq이용한 쿼리 이후 list의 a태그를 div 태그로 변경하여 설정.
+  - 폰트 어썸 홈페이지 icons
+  	- 링크 : https://fontawesome.com/v5.15/icons?d=gallery&p=2
+  - 삭제 버튼 js 기능
+```js
+
+	<a onclick="if (!confirm('정말로 삭제하시겠습니까?')) return false;" href="../article/doDelete?id=${article.id }"  class="btn btn-link">
+		<span>
+			<i class="fas fa-trash-alt"></i>
+		</span>
+		<span>삭제</span>
+	</a>
+```
+git commit :    
+  https://github.com/Moveuk/2021_JSP_Board/commit/7649c35d6cc6b8148795651cba72cece22942f5a
+
+<br><br>
+<hr>
+
+
+
+
+
+## 47. 게시물 삭제 
+ 주요 기능      
+  - rq replace 를 이용한 삭제 후 페이지 이동.
+
+git commit :    
+  https://github.com/Moveuk/2021_JSP_Board/commit/0c96f5844e95c9fd346ba6d681ac72c62721a599
+
+<br><br>
+<hr>
+
+
+
+
+
+## 48. 
  주요 기능      
   - 
 
@@ -913,7 +954,9 @@ git commit :
 
 
 
-## 45. 
+
+
+## 46. 
  주요 기능      
   - 
 
@@ -922,6 +965,24 @@ git commit :
 
 <br><br>
 <hr>
+
+
+
+
+
+
+
+## 46. 
+ 주요 기능      
+  - 
+
+git commit :    
+  
+
+<br><br>
+<hr>
+
+
 
 
 
