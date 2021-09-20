@@ -25,10 +25,12 @@ List<Article> articles = (List<Article>) request.getAttribute("articles");
 
 			<div class="px-4">
 				<c:forEach items="${articles }" var="article">
+					<c:set var="detailUri" value="../detail?id=${article.id}"></c:set>
+				
 					<div class="py-4">
 						<!-- css grid 기능 첫열 100px 고정 나머지 통째로 100% 설정 -->
 						<div class="grid gap-3" style="grid-template-columns: 100px 1fr;">
-							<a href="#">
+							<a href="${detailUri }">
 								<!-- class="rounded-full" : 동그랗게 잘라주는 테일윈드 기능/ 제목 사진 이미지 넣음. -->
 								<!-- w-full : width를 full로 주어 확장하게끔 이유 : grid를 100px로 주었기 때문에.-->
 								<img class="rounded-full w-full" src="https://i.pravatar.cc/200?img=37" alt="">
@@ -42,23 +44,23 @@ List<Article> articles = (List<Article>) request.getAttribute("articles");
 
 						<!-- mt-3 : margin 3px / gap-3 : grid의 gap을 줄 수 있다. -->
 						<!-- sm : 작은 화면일 때는 2 줄 허용 / lg 큰화면 일때는 4줄 허용 -->
-						<div class="mt-3 grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
-							<a href="#" class="hover:underline">
+						<div class="block mt-3 grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
+							<a href="${detailUri }" class="hover:underline">
 								<span class="badge badge-primary">번호</span>
 								<span>${article.id}</span>
 							</a>
 
-							<a href="#" class="cursor-pointer hover:underline">
+							<a href="${detailUri }" class="cursor-pointer hover:underline">
 								<span class="badge badge-accent">작성자</span>
 								<span>${article.memberId}</span>
 							</a>
 
-							<a href="#" class="hover:underline">
+							<a href="${detailUri }" class="hover:underline">
 								<span class="badge">등록날짜</span>
 								<span class="text-gray-600 text-light">${article.regDate}</span>
 							</a>
 
-							<a href="#" class="hover:underline">
+							<a href="${detailUri }" class="hover:underline">
 								<span class="badge">수정날짜</span>
 								<span class="text-gray-600 text-light">${article.updateDate}</span>
 							</a>
